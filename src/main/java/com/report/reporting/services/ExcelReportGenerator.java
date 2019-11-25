@@ -34,9 +34,6 @@ public class ExcelReportGenerator {
 
     private Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-//    @Autowired
-//    ReportEmailUtility reportEmailUtility;
-
     @Autowired
     CamerasStausRepository cameraStatusRepository;
 
@@ -44,7 +41,7 @@ public class ExcelReportGenerator {
 
     public ByteArrayInputStream generateExcelDocumnet() throws IOException {
         LOG.info("Report is being created - please wait...");
-        String[] COLUMNs = {"ShelfID", "FacilityId", "DivisionId", "Shelf Running Status", "Last Ping"};
+        String[] COLUMNs = {"WifiMacAddress", "FacilityId", "DivisionId", "Shelf Running Status", "Last Ping"};
         try (
                 Workbook workbook = new XSSFWorkbook();
                 ByteArrayOutputStream out = new ByteArrayOutputStream();
@@ -67,7 +64,7 @@ public class ExcelReportGenerator {
     @Cacheable("Generated Report")
     public byte[] generateExcelDocumnetEnableCaching() throws IOException {
         LOG.info("Scheduled Report is being created ....");
-        String[] COLUMNs = {"ShelfID", "FacilityId", "DivisionId", "Shelf Running Status", "Last Ping"};
+        String[] COLUMNs = {"WifiMacAddress", "FacilityId", "DivisionId", "Shelf Running Status", "Last Ping"};
         try (
                 Workbook workbook = new XSSFWorkbook();
                 ByteArrayOutputStream out = new ByteArrayOutputStream();

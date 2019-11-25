@@ -78,24 +78,4 @@ public class UserController {
 
     }
 
-    @CrossOrigin
-    @GetMapping("/getDivisions")
-    public List<String> getAllDivisions() {
-    	System.out.println("**********     getDivisions      *************");
-        return apiService.getAllDivisions();
-    }
-
-    @CrossOrigin
-    @GetMapping("/getFacilities}")
-    public List<String> getAllFacilities() {
-    	System.out.println("**********     getFacilities Controller      *************");
-    	return apiService.getAllFacilities();
-    }
-
-    @CrossOrigin
-	@GetMapping("/hello")
-    public String hello(){
-    	return "hello";
-	}
-    
 }
